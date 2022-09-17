@@ -29,11 +29,7 @@ class Driver(AbstractUser):
 
 
 class Car(models.Model):
-    name = models.CharField(max_length=255)
     model = models.CharField(max_length=255)
-    graduation_year = models.DateTimeField()
-    price = models.IntegerField()
-    annual_depreciation = models.IntegerField()
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
