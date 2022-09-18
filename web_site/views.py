@@ -27,13 +27,13 @@ def index(request):
         "num_visits": num_visits + 1,
     }
 
-    return render(request, "taxi/index.html", context=context)
+    return render(request, "web_site/index.html", context=context)
 
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
+    template_name = "web_site/manufacturer_list.html"
     paginate_by = 7
 
 
@@ -51,7 +51,7 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_confirm_delete.html"
+    template_name = "web_site/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -69,7 +69,7 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/car_confirm_delete.html"
+    template_name = "web_site/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
@@ -102,7 +102,7 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 7
-    template_name = "taxi/driver_list.html"
+    template_name = "web_site/driver_list.html"
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
@@ -123,14 +123,14 @@ class DriverUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Driver
-    template_name = "taxi/driver_confirm_delete.html"
+    template_name = "web_site/driver_confirm_delete.html"
     success_url = reverse_lazy("taxi:driver-list")
 
 
 class DriverLicenseUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Driver
     form_class = DriverLicenseUpdateForm
-    template_name = "taxi/driver_license_update.html"
+    template_name = "web_site/driver_license_update.html"
 
 
 @login_required

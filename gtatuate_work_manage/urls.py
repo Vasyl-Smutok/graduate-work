@@ -21,7 +21,7 @@ from gtatuate_work_manage import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("web_site.urls", namespace="taxi")),
+    path("", include("web_site.urls", namespace="web_site")),
     path("accounts/", include("django.contrib.auth.urls")),
     path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
